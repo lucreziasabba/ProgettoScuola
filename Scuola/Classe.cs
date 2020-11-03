@@ -18,11 +18,6 @@ namespace ProgettoScuola
             this.sezione = sezione;
         }
 
-        internal Votazione TrovaVotoMassimo()
-        {
-            throw new NotImplementedException();
-        }
-
         public string GetNome()
         {
             return anno.ToString() + sezione;
@@ -45,13 +40,28 @@ namespace ProgettoScuola
             for (int i = 0; i < studenti.Count; i++)
             {
                 Votazione voto = studenti[i].TrovaVotoMassimo();
-                if (voto.GetVoto() > max)
+                if (voto.GetVotoDouble() > max)
                 {
-                    max = voto.GetVoto();
+                    max = voto.GetVotoDouble();
                     c = i;
                 }
             }
             return studenti[c].TrovaVotoMassimo();
+        }
+        public Votazione TrovaVotoMinimo()
+        {
+            double min = 11;
+            int c = 0;
+            for (int i = 0; i < studenti.Count; i++)
+            {
+                Votazione voto = studenti[i].TrovaVotoMinimo();
+                if (voto.GetVotoDouble() < min)
+                {
+                    min = voto.GetVotoDouble();
+                    c = i;
+                }
+            }
+            return studenti[c].TrovaVotoMinimo();
         }
     }
     

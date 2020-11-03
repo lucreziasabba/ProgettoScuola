@@ -19,9 +19,9 @@ namespace ProgettoScuola
             this.materia = materia;
         }
 
-        public double GetVoto()
+        public Votazione GetVoto()
         {
-            return voto;
+            return this;
         }
 
         public DateTime GetData()
@@ -34,14 +34,17 @@ namespace ProgettoScuola
             return materia;
         }
 
-
-
         public bool IsSufficiente()
         {
             if (voto >= 6)
                 return true;
             else
                 return false;
+        }
+
+        public double GetVotoDouble()
+        {
+            return voto;
         }
     }
 }

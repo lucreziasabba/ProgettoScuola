@@ -49,17 +49,32 @@ namespace ProgettoScuola
         public Votazione TrovaVotoMassimo()
         {
             double max = -1;
-            int indice = 0;
+            int c = 0;
             for (int i = 0; i < classi.Count; i++)
             {
                 Votazione voto = classi[i].TrovaVotoMassimo();
-                if (voto.GetVoto() > max)
+                if (voto.GetVotoDouble() > max)
                 {
-                    max = voto.GetVoto();
-                    indice = i;
+                    max = voto.GetVotoDouble();
+                    c = i;
                 }
             }
-            return classi[indice].TrovaVotoMassimo();
+            return classi[c].TrovaVotoMassimo();
+        }
+        public Votazione TrovaVotoMinimo()
+        {
+            double min = 11;
+            int c = 0;
+            for (int i = 0; i < classi.Count; i++)
+            {
+                Votazione voto = classi[i].TrovaVotoMinimo();
+                if (voto.GetVotoDouble() < min)
+                {
+                    min = voto.GetVotoDouble();
+                    c = i;
+                }
+            }
+            return classi[c].TrovaVotoMinimo();
         }
     }
 }

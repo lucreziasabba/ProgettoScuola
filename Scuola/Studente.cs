@@ -18,12 +18,7 @@ namespace ProgettoScuola
             this.nome = nome;
             this.cognome = cognome;
         }
-
-        internal void AddVoto(Votazione votazione)
-        {
-            throw new NotImplementedException();
-        }
-
+    
         public string GetNome()
         {
             return nome;
@@ -52,13 +47,25 @@ namespace ProgettoScuola
         {
             voti.Add(voto);
         }
+
         public Votazione TrovaVotoMassimo()
         {
             int c = 0;
             double massimo = -1;
             for (int i = 0; i < voti.Count; i++)
             {
-                if (voti[i].GetVoto() > massimo)
+                if (voti[i].GetVotoDouble() > massimo)
+                    c = i;
+            }
+            return voti[c].GetVoto();
+        }
+        public Votazione TrovaVotoMinimo()
+        {
+            int c = 0;
+            double min = 11;
+            for (int i = 0; i < voti.Count; i++)
+            {
+                if (voti[i].GetVotoDouble() < min)
                     c = i;
             }
             return voti[c].GetVoto();
